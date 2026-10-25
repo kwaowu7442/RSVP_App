@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RSVP_App.LoginPage"
+             Title="Login" BackgroundColor="#FAF7F2">
+    <VerticalStackLayout Padding="30" Spacing="15" VerticalOptions="Center">
+        <Label Text="RSVP App" FontSize="32" FontAttributes="Bold"
+               TextColor="#1E4D4F" HorizontalOptions="Center" />
+        <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" TextColor="#2B2B2B" />
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" TextColor="#2B2B2B" />
+        <Button Text="Login" BackgroundColor="#D9733B" TextColor="White" Clicked="OnLoginClicked" />
+        <Button Text="Continue as Guest" BackgroundColor="#1E4D4F" TextColor="White" Clicked="OnGuestClicked" />
+        <Button Text="Create account" BackgroundColor="Transparent" TextColor="#1E4D4F" Clicked="OnCreateClicked" />
+        <Label x:Name="MessageLabel" TextColor="#B3261E" HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

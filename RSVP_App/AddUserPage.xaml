@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RSVP_App.AddUserPage"
+             Title="Create Account" BackgroundColor="#FAF7F2">
+    <VerticalStackLayout Padding="30" Spacing="15">
+        <Entry x:Name="NameEntry" Placeholder="Name" TextColor="#2B2B2B" />
+        <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" TextColor="#2B2B2B" />
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" TextColor="#2B2B2B" />
+        <Entry x:Name="PhoneEntry" Placeholder="Mobile phone number" Keyboard="Telephone" TextColor="#2B2B2B" />
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="Add" BackgroundColor="#D9733B" TextColor="White" Clicked="OnAddClicked" />
+            <Button Text="Cancel" BackgroundColor="#1E4D4F" TextColor="White" Clicked="OnCancelClicked" />
+        </HorizontalStackLayout>
+        <Label x:Name="MessageLabel" TextColor="#B3261E" HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
