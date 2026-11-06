@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RSVP_App.AddEventPage"
+             Title="Add Event" BackgroundColor="#FAF7F2">
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15">
+            <Entry x:Name="TitleEntry" Placeholder="Event title" TextColor="#2B2B2B" />
+            <Entry x:Name="DescEntry" Placeholder="Description" TextColor="#2B2B2B" />
+            <Entry x:Name="LocationEntry" Placeholder="Location" TextColor="#2B2B2B" />
+            <DatePicker x:Name="DatePick" />
+            <TimePicker x:Name="TimePick" />
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Save" Clicked="OnSaveClicked" BackgroundColor="#D9733B" TextColor="White" />
+                <Button Text="Cancel" Clicked="OnCancelClicked" BackgroundColor="#1E4D4F" TextColor="White" />
+            </HorizontalStackLayout>
+            <Label x:Name="MessageLabel" TextColor="#B3261E" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

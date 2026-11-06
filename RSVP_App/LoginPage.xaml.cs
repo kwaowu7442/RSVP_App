@@ -1,5 +1,3 @@
-using System.Net.NetworkInformation;
-
 namespace RSVP_App;
 
 public partial class LoginPage : ContentPage
@@ -11,12 +9,14 @@ public partial class LoginPage : ContentPage
 
     private async void OnLoginClicked(object sender, EventArgs e)
     {
-        if (EmailEntry.Text == "user@rsvp.com" && PasswordEntry.Text == "Password1")
+        var user = await Db.Instance.LoginAsync(EmailEntry.Text?.Trim() ?? "", PasswordEntry.Text ?? "");
+        if (user != null)
         {
+            Db.CurrentUserId = user.UserId;
             AppState.IsGuest = false;
-            AppState.UserName = "Kwadwo Owusu";
-            AppState.UserEmail = "user@rsvp.com";
-            AppState.UserPhone = "555-0100";
+            AppState.UserName = user.FirstName;
+            AppState.UserEmail = user.Email;
+            AppState.UserPhone = user.Phone;
             MessageLabel.Text = "";
             await Shell.Current.GoToAsync(nameof(EventsPage));
         }
@@ -28,6 +28,7 @@ public partial class LoginPage : ContentPage
 
     private async void OnGuestClicked(object sender, EventArgs e)
     {
+        Db.CurrentUserId = 0;
         AppState.IsGuest = true;
         AppState.UserName = "";
         AppState.UserEmail = "";

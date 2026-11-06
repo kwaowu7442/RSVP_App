@@ -18,7 +18,22 @@ public partial class AddUserPage : ContentPage
             return;
         }
 
-        await DisplayAlert("Success", "Account validated (saving comes later)", "OK");
+        var user = new User
+        {
+            FirstName = NameEntry.Text.Trim(),
+            Email = EmailEntry.Text.Trim(),
+            Password = PasswordEntry.Text,
+            Phone = PhoneEntry.Text.Trim()
+        };
+
+        bool added = await Db.Instance.AddUserAsync(user);
+        if (!added)
+        {
+            MessageLabel.Text = "An account with that email already exists";
+            return;
+        }
+
+        await DisplayAlert("Success", "Account created. You can log in now.", "OK");
         await Shell.Current.GoToAsync("..");
     }
 

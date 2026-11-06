@@ -3,8 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RSVP_App.EventsPage"
              Title="Events" BackgroundColor="#FAF7F2">
-    <VerticalStackLayout Padding="30" Spacing="15">
-        <Label x:Name="WelcomeLabel" FontSize="22" TextColor="#1E4D4F" />
-        <Button Text="Log Out" BackgroundColor="#1E4D4F" TextColor="White" Clicked="OnLogOutClicked" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15">
+            <Label x:Name="WelcomeLabel" FontSize="22" TextColor="#1E4D4F" />
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="All" Clicked="OnAllClicked" BackgroundColor="#1E4D4F" TextColor="White" />
+                <Button x:Name="AttendingBtn" Text="Attending" Clicked="OnAttendingClicked" BackgroundColor="#1E4D4F" TextColor="White" />
+                <Button x:Name="HostingBtn" Text="Hosting" Clicked="OnHostingClicked" BackgroundColor="#1E4D4F" TextColor="White" />
+                <Button x:Name="AddEventBtn" Text="Add Event" Clicked="OnAddEventClicked" BackgroundColor="#D9733B" TextColor="White" />
+            </HorizontalStackLayout>
+            <Label x:Name="ListLabel" FontAttributes="Bold" TextColor="#2B2B2B" />
+            <Label x:Name="EmptyLabel" TextColor="#B3261E" />
+            <CollectionView x:Name="EventsView" SelectionMode="Single"
+                            SelectionChanged="OnEventSelected" HeightRequest="320">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="0,8">
+                            <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="#1E4D4F" />
+                            <Label Text="{Binding EventDate, StringFormat='{0:MMM d, yyyy h:mm tt}'}" TextColor="#2B2B2B" />
+                            <Label Text="{Binding Location}" TextColor="#2B2B2B" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Log Out" BackgroundColor="#1E4D4F" TextColor="White" Clicked="OnLogOutClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

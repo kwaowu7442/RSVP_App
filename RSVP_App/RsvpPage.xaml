@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RSVP_App.RsvpPage"
+             Title="RSVP" BackgroundColor="#FAF7F2">
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="12">
+            <Label x:Name="TitleLabel" FontSize="22" FontAttributes="Bold" TextColor="#1E4D4F" />
+            <Label x:Name="DetailsLabel" TextColor="#2B2B2B" />
+            <Entry x:Name="NameEntry" Placeholder="Name" TextColor="#2B2B2B" />
+            <Entry x:Name="EmailEntry" Placeholder="Email" Keyboard="Email" TextColor="#2B2B2B" />
+            <Entry x:Name="GuestsEntry" Placeholder="Number of guests" Keyboard="Numeric" TextColor="#2B2B2B" />
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="RSVP" Clicked="OnRsvpClicked" BackgroundColor="#D9733B" TextColor="White" />
+                <Button Text="Back" Clicked="OnBackClicked" BackgroundColor="#1E4D4F" TextColor="White" />
+            </HorizontalStackLayout>
+            <Label x:Name="MessageLabel" TextColor="#B3261E" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
